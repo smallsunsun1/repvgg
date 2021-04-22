@@ -8,7 +8,11 @@ from repvgg import get_RepVGG_func_by_name, repvgg_model_convert
 
 repvgg_module = get_RepVGG_func_by_name("RepVGG-B1")()
 
-inputs = tf.random.uniform(shape=[1, 224, 224, 3], dtype=tf.float32)
+inputs = tf.ones(shape=[1, 224, 224, 3], dtype=tf.float32)
 res = repvgg_module(inputs)
 repvgg_model_convert(repvgg_module, "./saved_model")
 
+model = tf.saved_model.load("./saved_model")
+res2 = model(inputs)
+
+print(tf.reduce_sum(res2 - res))

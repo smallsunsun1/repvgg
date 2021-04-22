@@ -71,9 +71,9 @@ class RepVGGBlock(keras.layers.Layer):
             if not hasattr(self, 'id_tensor'):
                 input_dim = self.in_channels // self.groups
                 kernel_value = np.zeros(
-                    (3, 3, self.in_channels, input_dim), dtype=np.float32)
+                    (3, 3, input_dim, self.in_channels), dtype=np.float32)
                 for i in range(self.in_channels):
-                    kernel_value[:, :, i, i % input_dim] = 1
+                    kernel_value[1, 1, i % input_dim, i] = 1
                 self.id_tensor = tf.convert_to_tensor(kernel_value)
             kernel = self.id_tensor
             running_mean = branch.moving_mean
@@ -240,6 +240,7 @@ func_dict = {
 
 def get_RepVGG_func_by_name(name):
     return func_dict[name]
+
 
 def repvgg_model_convert(model: keras.models.Model, save_path=None, do_copy=False):
     if do_copy:
