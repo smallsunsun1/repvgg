@@ -61,7 +61,7 @@ class RepVGGBlock(keras.layers.Layer):
         if branch is None:
             return 0, 0
         elif isinstance(branch, ConvBN):
-            kernel = branch.conv.weights
+            kernel = branch.conv.weights[0]
             running_mean = branch.bn.moving_mean
             running_var = branch.bn.moving_variance
             gamma = branch.bn.gamma
@@ -85,7 +85,7 @@ class RepVGGBlock(keras.layers.Layer):
             raise NotImplementedError(
                 "Current Type Of Branch Are Not Supported!")
         std = tf.sqrt(running_var + eps)
-        t = tf.reshape(gamma / std, [-1, 1, 1, 1])
+        t = tf.reshape(gamma / std, [1, 1, 1, -1])
         return kernel * t, beta - running_mean * gamma / std
 
     def switch_to_deploy(self):
@@ -96,6 +96,7 @@ class RepVGGBlock(keras.layers.Layer):
                                                kernel_size=self.rbr_dense.conv.kernel_size, strides=self.rbr_dense.conv.strides,
                                                padding=self.rbr_dense.conv.padding, dilation_rate=self.rbr_dense.conv.dilation_rate,
                                                groups=self.rbr_dense.conv.groups, use_bias=True)
+        self.rbr_reparam.build([None, None, None, self.in_channels])
         self.rbr_reparam.set_weights([kernel, bias])
         self.__delattr__('rbr_dense')
         self.__delattr__('rbr_1x1')
