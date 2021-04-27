@@ -156,68 +156,68 @@ g2_map = {l: 2 for l in optional_groupwise_layers}
 g4_map = {l: 4 for l in optional_groupwise_layers}
 
 
-def create_RepVGG_A0(deploy=False):
-    return RepVGGModule(num_blocks=[2, 4, 14, 1], num_classes=1000,
+def create_RepVGG_A0(deploy=False, num_classes=1000):
+    return RepVGGModule(num_blocks=[2, 4, 14, 1], num_classes=num_classes,
                         width_multiplier=[0.75, 0.75, 0.75, 2.5], override_groups_map=None, deploy=deploy)
 
 
-def create_RepVGG_A1(deploy=False):
-    return RepVGGModule(num_blocks=[2, 4, 14, 1], num_classes=1000,
+def create_RepVGG_A1(deploy=False, num_classes=1000):
+    return RepVGGModule(num_blocks=[2, 4, 14, 1], num_classes=num_classes,
                         width_multiplier=[1, 1, 1, 2.5], override_groups_map=None, deploy=deploy)
 
 
-def create_RepVGG_A2(deploy=False):
-    return RepVGGModule(num_blocks=[2, 4, 14, 1], num_classes=1000,
+def create_RepVGG_A2(deploy=False, num_classes=1000):
+    return RepVGGModule(num_blocks=[2, 4, 14, 1], num_classes=num_classes,
                         width_multiplier=[1.5, 1.5, 1.5, 2.75], override_groups_map=None, deploy=deploy)
 
 
-def create_RepVGG_B0(deploy=False):
-    return RepVGGModule(num_blocks=[4, 6, 16, 1], num_classes=1000,
+def create_RepVGG_B0(deploy=False, num_classes=1000):
+    return RepVGGModule(num_blocks=[4, 6, 16, 1], num_classes=num_classes,
                         width_multiplier=[1, 1, 1, 2.5], override_groups_map=None, deploy=deploy)
 
 
-def create_RepVGG_B1(deploy=False):
-    return RepVGGModule(num_blocks=[4, 6, 16, 1], num_classes=1000,
+def create_RepVGG_B1(deploy=False, num_classes=1000):
+    return RepVGGModule(num_blocks=[4, 6, 16, 1], num_classes=num_classes,
                         width_multiplier=[2, 2, 2, 4], override_groups_map=None, deploy=deploy)
 
 
-def create_RepVGG_B1g2(deploy=False):
-    return RepVGGModule(num_blocks=[4, 6, 16, 1], num_classes=1000,
+def create_RepVGG_B1g2(deploy=False, num_classes=1000):
+    return RepVGGModule(num_blocks=[4, 6, 16, 1], num_classes=num_classes,
                         width_multiplier=[2, 2, 2, 4], override_groups_map=g2_map, deploy=deploy)
 
 
-def create_RepVGG_B1g4(deploy=False):
-    return RepVGGModule(num_blocks=[4, 6, 16, 1], num_classes=1000,
+def create_RepVGG_B1g4(deploy=False, num_classes=1000):
+    return RepVGGModule(num_blocks=[4, 6, 16, 1], num_classes=num_classes,
                         width_multiplier=[2, 2, 2, 4], override_groups_map=g4_map, deploy=deploy)
 
 
-def create_RepVGG_B2(deploy=False):
-    return RepVGGModule(num_blocks=[4, 6, 16, 1], num_classes=1000,
+def create_RepVGG_B2(deploy=False, num_classes=1000):
+    return RepVGGModule(num_blocks=[4, 6, 16, 1], num_classes=num_classes,
                         width_multiplier=[2.5, 2.5, 2.5, 5], override_groups_map=None, deploy=deploy)
 
 
-def create_RepVGG_B2g2(deploy=False):
-    return RepVGGModule(num_blocks=[4, 6, 16, 1], num_classes=1000,
+def create_RepVGG_B2g2(deploy=False, num_classes=1000):
+    return RepVGGModule(num_blocks=[4, 6, 16, 1], num_classes=num_classes,
                         width_multiplier=[2.5, 2.5, 2.5, 5], override_groups_map=g2_map, deploy=deploy)
 
 
-def create_RepVGG_B2g4(deploy=False):
-    return RepVGGModule(num_blocks=[4, 6, 16, 1], num_classes=1000,
+def create_RepVGG_B2g4(deploy=False, num_classes=1000):
+    return RepVGGModule(num_blocks=[4, 6, 16, 1], num_classes=num_classes,
                         width_multiplier=[2.5, 2.5, 2.5, 5], override_groups_map=g4_map, deploy=deploy)
 
 
-def create_RepVGG_B3(deploy=False):
-    return RepVGGModule(num_blocks=[4, 6, 16, 1], num_classes=1000,
+def create_RepVGG_B3(deploy=False, num_classes=1000):
+    return RepVGGModule(num_blocks=[4, 6, 16, 1], num_classes=num_classes,
                         width_multiplier=[3, 3, 3, 5], override_groups_map=None, deploy=deploy)
 
 
-def create_RepVGG_B3g2(deploy=False):
-    return RepVGGModule(num_blocks=[4, 6, 16, 1], num_classes=1000,
+def create_RepVGG_B3g2(deploy=False, num_classes=1000):
+    return RepVGGModule(num_blocks=[4, 6, 16, 1], num_classes=num_classes,
                         width_multiplier=[3, 3, 3, 5], override_groups_map=g2_map, deploy=deploy)
 
 
-def create_RepVGG_B3g4(deploy=False):
-    return RepVGGModule(num_blocks=[4, 6, 16, 1], num_classes=1000,
+def create_RepVGG_B3g4(deploy=False, num_classes=1000):
+    return RepVGGModule(num_blocks=[4, 6, 16, 1], num_classes=num_classes,
                         width_multiplier=[3, 3, 3, 5], override_groups_map=g4_map, deploy=deploy)
 
 
