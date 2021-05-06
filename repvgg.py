@@ -146,7 +146,6 @@ class RepVGGModule(keras.models.Model):
         out = self.stage3(out, **kwargs)
         out = self.stage4(out, **kwargs)
         out = self.gap(out, **kwargs)
-        out = tf.reshape(out, (tf.shape(out)[0], -1))
         out = self.linear(out, **kwargs)
         return out
 
